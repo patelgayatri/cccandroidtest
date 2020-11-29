@@ -1,33 +1,32 @@
 package com.techand.sampleapp.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.techand.sampleapp.data.model.Estimate
 import com.techand.sampleapp.data.model.Person
+import com.techand.sampleapp.data.model.PersonAndEstimate
 import com.techand.sampleapp.data.repository.EstimateRepository
 import com.techand.sampleapp.data.repository.PersonEstimateRepository
 import com.techand.sampleapp.data.repository.PersonRepository
+import io.reactivex.Flowable
 import kotlinx.coroutines.launch
 
-class JobViewModel @ViewModelInject constructor(
+class MainViewModel @ViewModelInject constructor(
     private val personRepository: PersonRepository,
     private val estimateRepository: EstimateRepository,
     private val personEstimateRepository: PersonEstimateRepository
 ) : ViewModel() {
-
 
     init {
         initialDefaultPerson()
         initialDefaultEstimate()
     }
 
-    fun getPersonEstimate() {
-        viewModelScope.launch {
-            personEstimateRepository.getPersonAndEstimate()
-
-        }
-    }
+     val personEstimateLiveData: Flowable<List<PersonAndEstimate>> =
+        personEstimateRepository.getPersonAndEstimate()
 
 
     private fun initialDefaultPerson() {

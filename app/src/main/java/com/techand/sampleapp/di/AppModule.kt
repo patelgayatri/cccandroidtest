@@ -35,7 +35,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providePersonEstimateDao(db: AppDatabase) = db.personAndEstimate()
+    fun providePersonEstimateDao(db: AppDatabase) = db.personAndEstimateDao()
 
     @Singleton
     @Provides

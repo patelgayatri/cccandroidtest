@@ -9,4 +9,5 @@ class PersonRepository @Inject constructor(private val personDao: PersonDao) {
     suspend fun insertPerson(person: Person) {
         personDao.insertPerson(person)
     }
+
 }

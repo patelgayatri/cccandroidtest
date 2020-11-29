@@ -1,13 +1,14 @@
 package com.techand.sampleapp.data
 
-import android.app.Person
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.techand.sampleapp.data.dao.EstimateDao
 import com.techand.sampleapp.data.dao.PersonDao
+import com.techand.sampleapp.data.dao.PersonEstimateDao
 import com.techand.sampleapp.data.model.Estimate
+import com.techand.sampleapp.data.model.Person
 import com.techand.sampleapp.data.model.PersonAndEstimate
 
 
@@ -15,7 +16,7 @@ import com.techand.sampleapp.data.model.PersonAndEstimate
 abstract class AppDatabase: RoomDatabase() {
     abstract fun personDao(): PersonDao
     abstract fun estimateDao(): EstimateDao
-    abstract fun personAndEstimate(): PersonAndEstimate
+    abstract fun personAndEstimateDao(): PersonEstimateDao
 
     companion object {
         @Volatile

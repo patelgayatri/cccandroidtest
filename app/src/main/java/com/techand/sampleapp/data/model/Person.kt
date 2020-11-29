@@ -7,8 +7,12 @@ import androidx.room.PrimaryKey
 data class Person(
     val email: String,
     val first_name: String,
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey
     val id: String,
     val last_name: String,
     val phone_number: String
-)
+){
+    fun fullName(): String {
+        return "$first_name $last_name"
+    }
+}

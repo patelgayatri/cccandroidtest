@@ -15,4 +15,17 @@ data class Estimate(
     val number: Int,
     val requested_by: String,
     val revision_number: Int
-)
+) {
+    fun revisionStr(): String {
+        return "$revision_number"
+    }
+
+    fun numberStr(): String {
+        return "$number"
+    }
+
+    fun createdStr(): String {
+        var str = created_date.split(" ")
+        return str[0]
+    }
+}

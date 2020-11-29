@@ -1,7 +1,8 @@
-package com.techand.sampleapp
+package com.techand.sampleapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.techand.sampleapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
